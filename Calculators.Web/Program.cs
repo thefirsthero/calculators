@@ -1,12 +1,16 @@
 using Calculators.Core.Services;
+using Calculators.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+DotNetEnv.Env.Load();
 
-// Register our calculator services
+// Add services to the container.
+builder.Services.AddHttpClient();
+builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ICalculatorService, CalculatorService>();
+builder.Services.AddHostedService<SelfPingHostedService>();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -23,6 +27,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+// Map health check endpoint
+app.MapHealthChecks("/health");
 
 app.MapControllerRoute(
     name: "default",
