@@ -1,0 +1,73 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Calculator App</h1>
+    <p class="lead">Your one-stop solution for various calculations</p>
+</div>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h3>Available Calculators</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card calculator-card mb-3">
+                            <div class="card-body text-center">
+                                <div class="calculator-icon mb-3">
+                                    <i class="fas fa-percentage fa-3x text-primary"></i>
+                                </div>
+                                <h5 class="card-title">Discount Calculator</h5>
+                                <p class="card-text">Calculate discounts, savings, and final prices</p>
+                                <a href="@Url.Action("Discount", "Calculator")" class="btn btn-primary">Use Calculator</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card calculator-card mb-3">
+                            <div class="card-body text-center">
+                                <div class="calculator-icon mb-3">
+                                    <i class="fas fa-coins fa-3x text-secondary"></i>
+                                </div>
+                                <h5 class="card-title">Currency Converter</h5>
+                                <p class="card-text">Convert between different currencies</p>
+                                <button class="btn btn-secondary" disabled>Coming Soon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card calculator-card mb-3">
+                            <div class="card-body text-center">
+                                <div class="calculator-icon mb-3">
+                                    <i class="fas fa-ruler-combined fa-3x text-secondary"></i>
+                                </div>
+                                <h5 class="card-title">Unit Converter</h5>
+                                <p class="card-text">Convert between different units of measurement</p>
+                                <button class="btn btn-secondary" disabled>Coming Soon</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card calculator-card mb-3">
+                            <div class="card-body text-center">
+                                <div class="calculator-icon mb-3">
+                                    <i class="fas fa-gas-pump fa-3x text-secondary"></i>
+                                </div>
+                                <h5 class="card-title">Fuel Efficiency</h5>
+                                <p class="card-text">Calculate fuel consumption and efficiency</p>
+                                <button class="btn btn-secondary" disabled>Coming Soon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
