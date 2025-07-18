@@ -7,6 +7,7 @@ WORKDIR /src
 # Copy solution and project files
 COPY ["Calculators.sln", "./"]
 COPY ["Calculators.Core/Calculators.Core.csproj", "Calculators.Core/"]
+COPY ["Calculators.Infrastructure/Calculators.Infrastructure.csproj", "Calculators.Infrastructure/"]
 COPY ["Calculators.Web/Calculators.Web.csproj", "Calculators.Web/"]
 
 # Restore dependencies
