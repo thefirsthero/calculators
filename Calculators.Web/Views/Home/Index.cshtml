@@ -3,68 +3,67 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Calculator App</h1>
-    <p class="lead">Your one-stop solution for various calculations</p>
+<div class="text-center mb-8">
+    <h1 class="display-4 text-3xl md:text-4xl font-bold tracking-tight mb-2">Welcome to CalcHub</h1>
+    <p class="text-lg text-slate-400 max-w-2xl mx-auto">Your one-stop solution for various calculations</p>
 </div>
 
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="card">
-            <div class="card-header">
-                <h3>Available Calculators</h3>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card calculator-card mb-3">
-                            <div class="card-body text-center">
-                                <div class="calculator-icon mb-3">
-                                    <i class="fas fa-percentage fa-3x text-primary"></i>
-                                </div>
-                                <h5 class="card-title">Discount Calculator</h5>
-                                <p class="card-text">Calculate discounts, savings, and final prices</p>
-                                <a href="@Url.Action("Discount", "Calculator")" class="btn btn-primary">Use Calculator</a>
-                            </div>
+<div class="max-w-6xl mx-auto">
+    <div class="card glass">
+        <div class="card-header">
+            <h3 class="text-xl font-bold">Available Calculators</h3>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="calculator-card glass p-5 rounded-xl">
+                    <div class="card-body text-center flex flex-col items-center">
+                        <div class="calculator-icon">
+                            <i class="fas fa-percentage"></i>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card calculator-card mb-3">
-                            <div class="card-body text-center">
-                                <div class="calculator-icon mb-3">
-                                    <i class="fas fa-coins fa-3x text-secondary"></i>
-                                </div>
-                                <h5 class="card-title">Currency Converter</h5>
-                                <p class="card-text">Convert between different currencies</p>
-                                <button class="btn btn-secondary" disabled>Coming Soon</button>
-                            </div>
-                        </div>
+                        <h5 class="card-title text-lg font-semibold mb-2">Discount Calculator</h5>
+                        <p class="card-text text-slate-400 mb-4">Calculate discounts, savings, and final prices</p>
+                        <a href="@Url.Action("Discount", "Calculator")" class="btn btn-primary w-full">
+                            Use Calculator
+                        </a>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card calculator-card mb-3">
-                            <div class="card-body text-center">
-                                <div class="calculator-icon mb-3">
-                                    <i class="fas fa-ruler-combined fa-3x text-secondary"></i>
-                                </div>
-                                <h5 class="card-title">Unit Converter</h5>
-                                <p class="card-text">Convert between different units of measurement</p>
-                                <button class="btn btn-secondary" disabled>Coming Soon</button>
-                            </div>
+
+                <div class="calculator-card glass p-5 rounded-xl opacity-70">
+                    <div class="card-body text-center flex flex-col items-center">
+                        <div class="calculator-icon bg-slate-600">
+                            <i class="fas fa-coins"></i>
                         </div>
+                        <h5 class="card-title text-lg font-semibold mb-2">Currency Converter</h5>
+                        <p class="card-text text-slate-400 mb-4">Convert between different currencies</p>
+                        <button class="btn bg-slate-700 w-full cursor-not-allowed" disabled>
+                            Coming Soon
+                        </button>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card calculator-card mb-3">
-                            <div class="card-body text-center">
-                                <div class="calculator-icon mb-3">
-                                    <i class="fas fa-gas-pump fa-3x text-secondary"></i>
-                                </div>
-                                <h5 class="card-title">Fuel Efficiency</h5>
-                                <p class="card-text">Calculate fuel consumption and efficiency</p>
-                                <button class="btn btn-secondary" disabled>Coming Soon</button>
-                            </div>
+                </div>
+
+                <div class="calculator-card glass p-5 rounded-xl opacity-70">
+                    <div class="card-body text-center flex flex-col items-center">
+                        <div class="calculator-icon bg-slate-600">
+                            <i class="fas fa-ruler-combined"></i>
                         </div>
+                        <h5 class="card-title text-lg font-semibold mb-2">Unit Converter</h5>
+                        <p class="card-text text-slate-400 mb-4">Convert between different units of measurement</p>
+                        <button class="btn bg-slate-700 w-full cursor-not-allowed" disabled>
+                            Coming Soon
+                        </button>
+                    </div>
+                </div>
+
+                <div class="calculator-card glass p-5 rounded-xl opacity-70">
+                    <div class="card-body text-center flex flex-col items-center">
+                        <div class="calculator-icon bg-slate-600">
+                            <i class="fas fa-gas-pump"></i>
+                        </div>
+                        <h5 class="card-title text-lg font-semibold mb-2">Fuel Efficiency</h5>
+                        <p class="card-text text-slate-400 mb-4">Calculate fuel consumption and efficiency</p>
+                        <button class="btn bg-slate-700 w-full cursor-not-allowed" disabled>
+                            Coming Soon
+                        </button>
                     </div>
                 </div>
             </div>
