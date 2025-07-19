@@ -341,7 +341,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Add to existing CSS */
 .navbar {
     background: #1e1e1e !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -442,4 +441,50 @@ h1, h2, h3, h4, h5, h6 {
 .calculator-card .btn {
     margin-top: auto;
     width: 100%;
+}
+
+/* Flex layout for sticky footer */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* Spacing adjustments */
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.mt-6 {
+    margin-top: 1.5rem;
+}
+
+.mt-8 {
+    margin-top: 2rem;
+}
+
+.mt-10 {
+    margin-top: 2.5rem;
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+/* Calculator page specific */
+.card-body {
+    padding: 1.5rem;
+}
+
+.result-card {
+    padding: 1.25rem;
 }
