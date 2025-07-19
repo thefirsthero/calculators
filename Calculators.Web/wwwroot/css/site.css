@@ -392,6 +392,13 @@ h6 {
   padding: 1.25rem;
 }
 
+.pt-4 {
+    padding-top: 1rem !important;
+}
+.pb-4 {
+    padding-bottom: 1rem !important;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
