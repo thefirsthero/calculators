@@ -4,6 +4,9 @@
   --card: #1e1e1e;
   --card-foreground: #ffffff;
   --primary: #bb86fc;
+  --primary-light: #cf9ffc;
+  --primary-dark: #a56efb;
+  --primary-transparent: rgba(187, 134, 252, 0.1);
   --secondary: #03dac6;
   --muted: #333333;
   --border: #383838;
@@ -18,6 +21,9 @@
   --card: #1e1e1e;
   --card-foreground: #ffffff;
   --primary: #bb86fc;
+  --primary-light: #cf9ffc;
+  --primary-dark: #a56efb;
+  --primary-transparent: rgba(187, 134, 252, 0.1);
   --secondary: #03dac6;
   --muted: #333333;
   --border: #383838;
@@ -38,6 +44,13 @@ body {
   background: var(--background);
   min-height: 100vh;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 .card {
@@ -79,10 +92,11 @@ body {
   color: #000000;
 }
 
-.btn:hover {
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  transform: translateY(-2px);
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
 }
 
 .form-control {
@@ -112,57 +126,109 @@ body {
 
 .navbar {
   background: #1e1e1e !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-bottom: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.5rem 1rem;
 }
 
-.navbar-brand {
-  font-weight: 500;
-  letter-spacing: 0.5px;
+.navbar-dark .navbar-toggler {
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.75rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: var(--primary);
+  background: var(--primary-transparent);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--primary);
+  background: var(--primary-transparent);
 }
 
 .dropdown-menu {
-  background: var(--card);
-  border: none;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  border-radius: var(--radius);
+  background: #252525;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .dropdown-item {
-  color: var(--foreground);
-  padding: 10px 16px;
-  transition: background 0.2s;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  margin: 0.25rem;
+  transition: all 0.2s ease;
 }
 
-.dropdown-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: var(--primary);
+  background: var(--primary-transparent);
 }
 
 .calculator-card {
-  background: var(--card);
+  background: #252525;
+  border-radius: 8px;
   transition: all 0.3s ease;
   height: 100%;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .calculator-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--primary);
+}
+
+.calculator-card .card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
 }
 
 .calculator-icon {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.5rem;
   background: var(--primary);
-  color: #000000;
-  font-size: 1.5rem;
+  color: #000;
+  font-size: 1.75rem;
+  box-shadow: 0 4px 10px rgba(187, 134, 252, 0.3);
+}
+
+.calculator-card .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.calculator-card .card-text {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.calculator-card .btn {
+  margin-top: auto;
+  width: 100%;
 }
 
 .result-card {
@@ -177,6 +243,25 @@ body {
   border-top: 1px solid var(--border);
   color: var(--muted-foreground);
   padding: 1.5rem 0;
+}
+
+.footer a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: var(--primary-light);
+}
+
+.social-links a {
+  color: var(--muted-foreground);
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary);
 }
 
 /* Animations */
@@ -279,6 +364,10 @@ h6 {
   margin-bottom: 1rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .mb-8 {
   margin-bottom: 2rem;
 }
@@ -295,6 +384,10 @@ h6 {
   margin-top: 2rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .p-5 {
   padding: 1.25rem;
 }
@@ -302,6 +395,11 @@ h6 {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .px-4 {
@@ -316,6 +414,10 @@ h6 {
 
 .text-white {
   color: #ffffff;
+}
+
+.text-primary {
+  color: var(--primary);
 }
 
 .text-blue-400 {
@@ -343,154 +445,6 @@ h6 {
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
-
-.navbar {
-  background: #1e1e1e !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.5rem 1rem;
-}
-
-.navbar-dark .navbar-toggler {
-  color: rgba(255, 255, 255, 0.8);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.navbar-dark .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-.navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.8);
-  padding: 0.75rem 1rem;
-  margin: 0 0.25rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.navbar-nav .nav-link.active {
-  color: var(--primary);
-  background: rgba(187, 134, 252, 0.1);
-}
-
-.dropdown-menu {
-  background: #252525;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.dropdown-item {
-  color: rgba(255, 255, 255, 0.8);
-  padding: 0.75rem 1.25rem;
-  border-radius: 4px;
-  margin: 0.25rem;
-  transition: all 0.2s ease;
-}
-
-.dropdown-item:hover,
-.dropdown-item:focus {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Calculator card improvements */
-.calculator-card {
-  background: #252525;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.calculator-card .card-body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 1.5rem;
-}
-
-.calculator-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-  background: var(--primary);
-  color: #000;
-  font-size: 1.75rem;
-  box-shadow: 0 4px 10px rgba(187, 134, 252, 0.3);
-}
-
-.calculator-card .card-title {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
-
-.calculator-card .card-text {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  flex-grow: 1;
-}
-
-.calculator-card .btn {
-  margin-top: auto;
-  width: 100%;
-}
-
-/* Flex layout for sticky footer */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-}
-
-/* Spacing adjustments */
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.mt-6 {
-  margin-top: 1.5rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
-/* Calculator page specific */
-.card-body {
-  padding: 1.5rem;
-}
-
-.result-card {
-  padding: 1.25rem;
 }
 
 .navbar-brand.text-primary {
@@ -548,4 +502,16 @@ main {
 
 .text-teal-400 {
   color: #4db6ac;
+}
+
+/* Button hover states */
+.btn.bg-slate-700 {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+.btn.bg-slate-700:hover {
+  background: var(--primary-transparent);
+  color: var(--primary);
+  border: 1px solid var(--primary);
 }
